@@ -4,7 +4,8 @@
   "info": {
     "singularName": "step",
     "pluralName": "steps",
-    "displayName": "Steps"
+    "displayName": "Steps",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

@@ -21,16 +21,21 @@
     "step": {
       "type": "string"
     },
-    "images": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::image.image"
-    },
     "tags": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::tag.tag",
       "inversedBy": "tasks"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

@@ -677,43 +677,13 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiImageImage extends Schema.CollectionType {
-  collectionName: 'images';
-  info: {
-    singularName: 'image';
-    pluralName: 'images';
-    displayName: 'Images';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    image: Attribute.Media;
-    description: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::image.image',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::image.image',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiStepStep extends Schema.CollectionType {
   collectionName: 'steps';
   info: {
     singularName: 'step';
     pluralName: 'steps';
     displayName: 'Steps';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -770,12 +740,8 @@ export interface ApiTaskTask extends Schema.CollectionType {
     name: Attribute.String;
     description: Attribute.Text;
     step: Attribute.String;
-    images: Attribute.Relation<
-      'api::task.task',
-      'oneToMany',
-      'api::image.image'
-    >;
     tags: Attribute.Relation<'api::task.task', 'manyToMany', 'api::tag.tag'>;
+    image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -802,7 +768,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
-      'api::image.image': ApiImageImage;
       'api::step.step': ApiStepStep;
       'api::tag.tag': ApiTagTag;
       'api::task.task': ApiTaskTask;
