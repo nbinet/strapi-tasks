@@ -1,13 +1,15 @@
 # strapi-tasks
 
-Pour utiliser l'application :
-
+```bash
 cd strapi
 npm i
 npm run start
+```
 
+```bash
 cd front
 npm i
 npm run start
+```
 
-aller au lien : http://localhost:3000/
+http://localhost:3000/
