@@ -33,9 +33,7 @@ http://localhost:3000/
 | ----------- |
 | id          |
 | name        |
-| description |
-| step        |
-| tags []     |
+| tasks []    |
 
 
 | Step        |
